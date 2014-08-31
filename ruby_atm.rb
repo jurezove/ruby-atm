@@ -3,6 +3,8 @@ class RubyATM
   DEFAULT_BALANCE = { 10 => 10, 20 => 10, 50 => 10, 100 => 10, 200 => 10, 500 => 1 }
   MAX_WITHDRAWAL = 2000
 
+  EVIL_ATM = false # Always return the smallest possible notes
+
   def initialize(notes = DEFAULT_BALANCE)
     @balance = {}
     deposit(notes)
@@ -29,7 +31,8 @@ class RubyATM
     withdrawn_notes = {}
     withdrawn_amount = 0
 
-    @balance.keys.sort.reverse.each do |note|
+    notes = EVIL_ATM ? @balance.keys.sort : @balance.keys.sort.reverse 
+    notes.each do |note|
       max_notes = (amount - withdrawn_amount) / note
       actual_notes = [@balance[note], max_notes].min
       
