@@ -3,7 +3,7 @@ ruby-atm
 
 A simple Ruby app simulating an ATM
 
-The RubyATM class allows you to withdraw or deposit a specified amount and returns a hash of bank notes and their count. Deposits add to the ATM's balance and withdrawals subtracts.
+The RubyATM class allows you to withdraw or deposit a specified amount and returns a hash of bank notes and their count. Deposits add to the ATM's balance and withdrawals subtract.
 
 # Usage
 Initialize RubyATM with the default balance
