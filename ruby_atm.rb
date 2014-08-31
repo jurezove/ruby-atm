@@ -42,6 +42,8 @@ class RubyATM
       end
     end
 
+    raise WithdrawalAmountInvalid, 'Amount cannot be withdrawn. Please specify another amount.' if withdrawn_amount < amount
+
     withdrawn_notes
   end
 

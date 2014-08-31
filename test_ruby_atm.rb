@@ -50,17 +50,35 @@ class TestRubyATM < MiniTest::Test
     assert_equal({500 => 1, 200 => 3, 100 => 1, 50 => 1, 20 => 2}, @atm.withdraw(1290))
   end
 
+  def test_invalid_withdrawal_with_missing_notes
+    empty_atm
+
+    @atm.deposit(500 => 1, 200 => 1)
+
+    assert_raises WithdrawalAmountInvalid do
+      @atm.withdraw(150)
+    end
+
+    assert_equal({500 => 1, 200 => 1}, @atm.withdraw(700))
+  end
+
   # Testing deposits
 
   def test_deposit_500
-    @atm.withdraw(2000)
-    @atm.withdraw(2000)
-    @atm.withdraw(300)
+    empty_atm
 
     deposit = {50 => 8, 10 => 10}
     @atm.deposit(deposit)
 
     assert_equal(deposit, @atm.withdraw(500))
+  end
+
+  private
+
+  def empty_atm
+    @atm.withdraw(2000)
+    @atm.withdraw(2000)
+    @atm.withdraw(300)
   end
 
 end
