@@ -24,6 +24,3 @@ If `EVIL_ATM` is set to `true`, the ATM will always return the smallest possible
 
 # Testing (minitest)
 `ruby test_ruby_atm.rb`
-
-# Todo
-Handle a case in which the ATM doesnt have small enough notes for the specified amount.
