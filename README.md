@@ -18,5 +18,9 @@ Deposit 1200
 
 `atm.deposit(540) # { 500 => 2, 50 => 4 }`
 
+## Evil ATM Mode
+
+If `EVIL_ATM` is set to `true`, the ATM will always return the smallest possible notes for the requested withdrawal amount. EVIL! :)
+
 # Testing (minitest)
 `ruby test_ruby_atm.rb`
